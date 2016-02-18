@@ -1,6 +1,4 @@
 <?php
-
-
 /*	if( !empty($_GET['nbMaxMess']) ){
 		setcookie('NbMaxMsg', $_GET["nbMaxMess"], time() + 365*24*3600);
 	}
