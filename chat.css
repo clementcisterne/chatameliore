@@ -1,0 +1,94 @@
+@font-face {
+				font-family: 'BadMofo';
+				src: url('src/font/Bad Mofo.ttf');
+			}
+			@font-face {
+				font-family: 'ubuntu';
+				src: url('src/font/Ubuntu-L.ttf');
+			}
+
+		
+			body{
+				
+				background-opacity:0.9;
+				background-color: grey;
+			}
+
+			form
+			{
+				font-family: 'ubuntu';
+				text-align: center;
+				font-size : 25px;
+
+
+				padding-top: 200px;
+				position : relative;
+
+			}
+			input[type="submit"]
+			{
+				required:required;
+			}
+
+
+			.CHAT
+			{
+				
+				font-family: 'BadMofo';
+
+				font-size : 600%;
+
+				position : absolute;
+				left:45%;
+				top : -5%;
+			}
+			.title
+			{
+				font-family: 'BadMofo';
+
+				font-size : 600%;
+
+				position : absolute;
+				left:40%;
+				top : -5%;
+			}
+			.envoyer
+			{
+				font-family: 'ubuntu';
+				border-radius:10px;
+				size: 1000px;
+				box-shadow:0 0 6px;
+
+				padding:1%;
+			}
+			.champSaisieTexte
+			{
+
+				border:solid 1px black;
+				border-radius: 5px;
+				height: 50px;
+				width: 300px;
+			}
+
+
+			.barre{
+				border : 6px double black;
+			}
+
+			.policeUbuntu
+			{
+				font-family: 'ubuntu';
+			}
+			.nbMess
+			{
+				height: 20px;
+				width: 40px;
+			}
+
+
+			input:hover
+			{
+				text-align: center;
+				text-decoration: none;
+				color : black;
+			}
