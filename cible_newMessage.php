@@ -21,21 +21,24 @@
 		$req->bindParam(":message",$_POST['message'] );
 		$req->execute();
 
-	// Redicretion
-		
+		// Gestion du pseudo
+		if(!isset($_COOKIE['pseudonyme'])) {
+			if (!empty($_POST['pseudo'])) {
+				setcookie('pseudonyme', $_POST['pseudo'], time() + 365 * 24 * 3600);
+			}
+		}
+
+		// Rediretion
 		header('Location: index.php');
-
 	}
-	else { header('Location: index.php'); }
-
 
 // Gestion du nombre de message visible
-	if ( isset($_POST['nbMaxMess']) )
-	{
-		$t=$_POST['nbMaxMess'];
-		setcookie('NbMaxMsg', $t, time() + 365*24*3600);
-		header('Location: index.php');
-		#header('Location: chat.php?nbMaxMess='.$t.' ');
+	else if (!empty($_POST['nbMaxMess']) ) {
+		unset($_COOKIE['nbMaxMess']);
+		setcookie('nbMaxMsg',$_POST['nbMaxMess'], time() + 365 * 24 * 3600);
 	}
-	else { echo 'ERROR'; }
-?>
+	else { if ( !empty($_COOKIE['nbMaxMsg'] )) 	{ setcookie('nbMaxMsg', 10 , time() + 365 * 24 * 3600); }}
+
+ header('Location: index.php');
+
+?>z

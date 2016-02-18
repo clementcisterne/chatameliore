@@ -1,18 +1,12 @@
 <?php
-/*	if( !empty($_GET['nbMaxMess']) ){
-		setcookie('NbMaxMsg', $_GET["nbMaxMess"], time() + 365*24*3600);
-	}
-	else
-	{
-		setcookie('NbMaxMsg', 10, time() + 365*24*3600); 
-	}
 
-	elseif ( !empty($_GET['pseudo']) ){
-		setcookie('pseudonyme', $_GET["pseudo"], time() + 365*24*3600);
-	}
-	*/
+/*
+if(!isset($_COOKIE['nbMaxMsg'])){
+	if( !isset($_POST['nbMaxMess']) ){ setcookie('nbMaxMsg', 10, time() + 365*24*3600); }
+}
+*/
+
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -53,14 +47,14 @@
 				}
 
 // recuperer les derniers messages
-	if(isset($_COOKIE['NbMaxMsg']))
+	if(isset($_COOKIE['nbMaxMsg']))
 	{
 		// on recupère l'id MAX des messages
 			$repIdMessMax=$bdd->query('SELECT MAX(id) FROM messages'); 
 			$idMessMax= $repIdMessMax->fetch();	
 
 		// on le soustrait par le nb de messages que l'on veut afficher						   
-			$idMin=$idMessMax['MAX(id)'] - $_COOKIE['NbMaxMsg'];		  
+			$idMin=$idMessMax['MAX(id)'] - $_COOKIE['nbMaxMsg'];
 				
 		// on récupère les derniers messages (à partir de Max(id) - le nb que l'on veut)
 			$query='SELECT dateMessage,pseudo,texte FROM messages WHERE id>"'.$idMin.'" ' ;		
